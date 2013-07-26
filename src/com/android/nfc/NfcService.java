@@ -375,10 +375,10 @@ public class NfcService extends Application implements DeviceHostListener {
 
     void registerForAirplaneMode(IntentFilter filter) {
         final ContentResolver resolver = mContext.getContentResolver();
-        final String airplaneModeRadios = Settings.System.getString(resolver,
-                Settings.System.AIRPLANE_MODE_RADIOS);
-        final String toggleableRadios = Settings.System.getString(resolver,
-                Settings.System.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
+        final String airplaneModeRadios = Settings.Global.getString(resolver,
+                Settings.Global.AIRPLANE_MODE_RADIOS);
+        final String toggleableRadios = Settings.Global.getString(resolver,
+                Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS);
 
         mIsAirplaneSensitive = airplaneModeRadios == null ? true :
                 airplaneModeRadios.contains(Settings.System.RADIO_NFC);
